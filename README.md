@@ -10,7 +10,22 @@ To write a program to find the 1-norm, 2-norm and infinity norm of the matrix an
 	3. Print the norm of the matrix in two decimal places.
 ## Program:
 ```
+import os
+os.environ["OPENBLAS_NUM_THREADS"]="1"
 
+A = eval(input())
+
+cols = len(A[0])
+max_sum = 0
+
+for j in range(cols):
+    s = 0
+    for i in range(len(A)):
+        s += abs(A[i][j])
+    if s > max_sum:
+        max_sum = s
+
+print("{:.2f}".format(max_sum))
 
 
 
