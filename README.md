@@ -66,7 +66,21 @@ print("{:.2f}".format(eigen))
 
 # Infinity Norm of a Matrix
 
+import os
+os.environ["OPENBLAS_NUM_THREADS"]="1"
+A = eval(input())
 
+max_sum = 0
+
+for i in range(len(A)):
+    s = 0
+    for j in range(len(A[0])):
+        s += abs(A[i][j])
+
+    if s > max_sum:
+        max_sum = s
+
+print("{:.2f}".format(max_sum))
 
 
 
